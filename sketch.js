@@ -136,13 +136,18 @@ var calcLevelSketch = function(p) {
   }
 }
 
+function startnewlevel(){}
+
 var levelsScreenSketch = function(s){
   s.setup = function(){
     s.createCanvas(500,500);
+    s.createButton('Level 1').position(200,200).mousePressed(startnewlevel);
+
   }
   s.draw = function(){
     s.background('orange');
   }
+  // s.mousePressed(){display level screen}
 }
 
 
