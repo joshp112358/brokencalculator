@@ -107,7 +107,7 @@ var calcLevelSketch = function(p) {
   function drawTimer() {}
 
   p.setup = function() {
-    p.createCanvas(600, 500);
+    p.createCanvas(500, 500);
     makeCalcButtons();
 		scoreElem = p.createDiv().position(100,50)
 								.style("color", "white")
@@ -136,4 +136,15 @@ var calcLevelSketch = function(p) {
   }
 }
 
+var levelsScreenSketch = function(s){
+  s.setup = function(){
+    s.createCanvas(500,500);
+  }
+  s.draw = function(){
+    s.background('orange');
+  }
+}
+
+
 var calcScreen = new p5(calcLevelSketch);
+var levelsScreen = new p5(levelsScreenSketch);
