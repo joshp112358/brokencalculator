@@ -151,7 +151,7 @@ var calcLevelSketch = function(p) {
   function timeIt(){
     counter++;
     timerElem.html("Time "+eval(time-counter));
-    if (counter == 10){
+    if (counter == time){
       clearInterval(interval);
       counter = 0;
       p.displayEndMessage = true;
