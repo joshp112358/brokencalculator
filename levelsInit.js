@@ -1,6 +1,6 @@
 var calcScreen = new p5(calcLevelSketch,"calculatorScreen");
 var levelScreen = new p5(levelSelectionSketch, "levelingScreen")
-
+var initScreen = new p5(initScreenSketch, "initialScreen")
 function level1(){
   calcScreen.displayEndMessage = false;
   calcScreen.brokenKeys = ["8"];

@@ -10,8 +10,10 @@
 	<script src="libraries/p5.js"></script>
 	<script src="libraries/p5.dom.js"></script>
 	<script src="libraries/p5.sound.js"></script>
-	<script src="calcLevelSketch.js"></script>
+
+	<script src="initialScreen.js"></script>
 	<script src="levelSelectionSketch.js"></script>
+	<script src="calcLevelSketch.js"></script>
 	<script src="levelsInit.js"></script>
 
 
@@ -30,6 +32,9 @@
 		}
 
 		#levelingScreen {
+			display: none;
+		}
+		#initialScreen{
 			display: block;
 		}
 
@@ -38,6 +43,7 @@
 
 <div id="calculatorScreen"></div>
 <div id="levelingScreen"></div>
+<div id="initialScreen"></div>
 <body>
 </body>
 
