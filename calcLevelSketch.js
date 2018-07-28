@@ -151,7 +151,7 @@ var calcLevelSketch = function(p) {
   function timeIt(){
     counter++;
     timerElem.html("Time "+eval(time-counter));
-    if (counter == time){
+    if (counter == 60){
       clearInterval(interval);
       counter = 0;
       p.displayEndMessage = true;
@@ -169,6 +169,11 @@ var calcLevelSketch = function(p) {
     p.fill("black")
     p.rect(90,130,250,310)
 
+  }
+
+  p.clearMoveHistory = function(){
+    p.moveHistory = [];
+    moveHistoryElem.html("Move History")
   }
 
   p.draw = function() {
