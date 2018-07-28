@@ -10,6 +10,9 @@ var calcLevelSketch = function(p) {
   var backButton;
   var timerElem;
   var time = 60;
+  p.displayEndMessage = false;
+  p.moveHistory = [];
+  var moveHistoryElem;
 
 
   p.makeCalcButtons = function() {
@@ -34,7 +37,7 @@ var calcLevelSketch = function(p) {
 
     p.calcInput.style('width', '225px')
       .style('height', '35px')
-      .style('background-color', "rgb(60,900,60)")
+      .style('background-color', "white")
       .style("font-size", "2em")
       .style("align-content", "right");
 
@@ -42,7 +45,8 @@ var calcLevelSketch = function(p) {
     for (let i = 1; i < p.calcButtons.length; i++) {
       p.calcButtons[i].style('width', '50px')
         .style('height', '50px')
-        .style('background-color', "rgb(60,900, 60)")
+        .style('background-color', "white")
+        .style('font-size', '1em')
         .mousePressed(add);
     }
     p.calcButtons[13].mousePressed(zeroed)
@@ -111,10 +115,12 @@ var calcLevelSketch = function(p) {
   }
 
   function equals() {
-    p.calcInput.value(eval(p.calcInput.value()));
-    if (p.calcInput.value() == p.target){
-      zeroed();
+    var value = eval(p.calcInput.value());
+    if (value == p.target && p.moveHistory.indexOf(p.calcInput.value())===-1){
       p.score += 1;
+      p.moveHistory.push(p.calcInput.value());
+      moveHistoryElem.html(moveHistoryElem.html() + "<br>"+ p.calcInput.value());
+      zeroed();
     }
     else{
       zeroed();
@@ -148,94 +154,28 @@ var calcLevelSketch = function(p) {
     if (counter == 10){
       clearInterval(interval);
       counter = 0;
+      p.displayEndMessage = true;
     }
   }
   p.setup = function() {
     p.createCanvas(500, 500);
-    p.background('orange');
+    p.background('#43f2c3');
+    timerElem = p.createDiv("Time "+time).position(250,80);
     p.makeCalcButtons();
     scoreElem = p.createDiv().position(100,50);
     targElem = p.createDiv().position(100,80);
-    backButton = p.createButton('Back').mousePressed(p.switchScreen).position(400,100);
-    timerElem = p.createDiv("Time "+time).position(250,80);
+    backButton = p.createButton('Back').mousePressed(p.switchScreen).position(400, 420);
+    moveHistoryElem = p.createDiv('Move History').position(370,90).style("width", '120px').style("height", '320px');
+    p.fill("black")
+    p.rect(90,130,250,310)
+
   }
 
   p.draw = function() {
     scoreElem.html('Score: '+ p.score)
     targElem.html('Target:' + p.target)
-  }
-}
-
-
-
-
-var levelSelectionSketch = function(s){
-  s.setup = function(){
-    s.createCanvas(500,500);
-    s.background('orange');
-    s.createButton("level1").position(100,100).mousePressed(s.switchScreen1);
-    s.createButton("level2").position(180,100).mousePressed(s.switchScreen2);
-
-    s.createButton("level3").position(260,100).mousePressed(s.switchScreen3);
-    s.createButton("level4").position(100,200).mousePressed(s.switchScreen4);
-    s.createButton("level5").position(180,200).mousePressed(s.switchScreen5);
-
-    s.createButton("level6").position(260,200).mousePressed(s.switchScreen6);
-    s.createButton("level7").position(100,300).mousePressed(s.switchScreen7);
-    s.createButton("level8").position(180,300).mousePressed(s.switchScreen8);
-
-    s.createButton("level9").position(260,300).mousePressed(s.switchScreen9);
-    s.createButton("level10").position(100,400).mousePressed(s.switchScreen10);
-  }
-
-  s.switchScreen1 = function(x){
-    document.getElementById("levelingScreen").style.display = "none";
-    document.getElementById("calculatorScreen").style.display = "block";
-    level1();
-  }
-  s.switchScreen2 = function(x){
-    document.getElementById("levelingScreen").style.display = "none";
-    document.getElementById("calculatorScreen").style.display = "block";
-    level2();
-  }
-  s.switchScreen3 = function(x){
-    document.getElementById("levelingScreen").style.display = "none";
-    document.getElementById("calculatorScreen").style.display = "block";
-    level3();
-  }
-  s.switchScreen4 = function(x){
-    document.getElementById("levelingScreen").style.display = "none";
-    document.getElementById("calculatorScreen").style.display = "block";
-    level4();
-  }
-  s.switchScreen5 = function(x){
-    document.getElementById("levelingScreen").style.display = "none";
-    document.getElementById("calculatorScreen").style.display = "block";
-    level5();
-  }
-  s.switchScreen6 = function(x){
-    document.getElementById("levelingScreen").style.display = "none";
-    document.getElementById("calculatorScreen").style.display = "block";
-    level6();
-  }
-  s.switchScreen7 = function(x){
-    document.getElementById("levelingScreen").style.display = "none";
-    document.getElementById("calculatorScreen").style.display = "block";
-    level7();
-  }
-  s.switchScreen8 = function(x){
-    document.getElementById("levelingScreen").style.display = "none";
-    document.getElementById("calculatorScreen").style.display = "block";
-    level8();
-  }
-  s.switchScreen9 = function(x){
-    document.getElementById("levelingScreen").style.display = "none";
-    document.getElementById("calculatorScreen").style.display = "block";
-    level9();
-  }
-  s.switchScreen10 = function(x){
-    document.getElementById("levelingScreen").style.display = "none";
-    document.getElementById("calculatorScreen").style.display = "block";
-    level10();
+    if (p.displayEndMessage){
+      timerElem.html("Times Up")
+    }
   }
 }
