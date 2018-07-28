@@ -2,44 +2,69 @@ var levelSelectionSketch = function(s) {
 
   var buttons = [];
   var makeButtons = function() {
-    buttons.push(s.createButton("level1").position(80, 90).mousePressed(s.switchScreen1));
-    buttons.push(s.createButton("level2").position(170, 90).mousePressed(s.switchScreen2));
-    buttons.push(s.createButton("level3").position(260, 90).mousePressed(s.switchScreen3));
-    buttons.push(s.createButton("level4").position(350, 90).mousePressed(s.switchScreen4));
-    buttons.push(s.createButton("level5").position(80, 160).mousePressed(s.switchScreen5));
-    buttons.push(s.createButton("level6").position(170, 160).mousePressed(s.switchScreen6));
-    buttons.push(s.createButton("level7").position(260, 160).mousePressed(s.switchScreen7));
-    buttons.push(s.createButton("level8").position(350, 160).mousePressed(s.switchScreen8));
-    buttons.push(s.createButton("level9").position(80, 230).mousePressed(s.switchScreen9));
-    buttons.push(s.createButton("level10").position(170, 230).mousePressed(s.switchScreen10));
-    buttons.push(s.createButton("level11").position(260, 230).mousePressed(s.switchScreen11));
-    buttons.push(s.createButton("level12").position(350, 230).mousePressed(s.switchScreen12));
-    buttons.push(s.createButton("level13").position(80, 300).mousePressed(s.switchScreen13));
-    buttons.push(s.createButton("level14").position(170, 300).mousePressed(s.switchScreen14));
-    buttons.push(s.createButton("level15").position(260, 300).mousePressed(s.switchScreen15));
-    buttons.push(s.createButton("level16").position(350, 300).mousePressed(s.switchScreen16));
-    buttons.push(s.createButton("level17").position(80, 370).mousePressed(s.switchScreen17));
-    buttons.push(s.createButton("level18").position(170, 370).mousePressed(s.switchScreen18));
-    buttons.push(s.createButton("level19").position(260, 370).mousePressed(s.switchScreen19));
-    buttons.push(s.createButton("level20").position(350, 370).mousePressed(s.switchScreen20));
+    // x delta 95, y delta 70
+    buttons.push(s.createButton("1").position(80, 90).mousePressed(s.switchScreen1));
+    buttons.push(s.createButton("2").position(175, 90).mousePressed(s.switchScreen2));
+    buttons.push(s.createButton("3").position(270, 90).mousePressed(s.switchScreen3));
+    buttons.push(s.createButton("4").position(365, 90).mousePressed(s.switchScreen4));
+    buttons.push(s.createButton("5").position(80, 160).mousePressed(s.switchScreen5));
+    buttons.push(s.createButton("6").position(175, 160).mousePressed(s.switchScreen6));
+    buttons.push(s.createButton("7").position(270, 160).mousePressed(s.switchScreen7));
+    buttons.push(s.createButton("8").position(365, 160).mousePressed(s.switchScreen8));
+    buttons.push(s.createButton("9").position(80, 230).mousePressed(s.switchScreen9));
+    buttons.push(s.createButton("10").position(175, 230).mousePressed(s.switchScreen10));
+    buttons.push(s.createButton("11").position(270, 230).mousePressed(s.switchScreen11));
+    buttons.push(s.createButton("12").position(365, 230).mousePressed(s.switchScreen12));
+    buttons.push(s.createButton("13").position(80, 300).mousePressed(s.switchScreen13));
+    buttons.push(s.createButton("14").position(175, 300).mousePressed(s.switchScreen14));
+    buttons.push(s.createButton("15").position(270, 300).mousePressed(s.switchScreen15));
+    buttons.push(s.createButton("16").position(365, 300).mousePressed(s.switchScreen16));
+    buttons.push(s.createButton("17").position(80, 370).mousePressed(s.switchScreen17));
+    buttons.push(s.createButton("18").position(175, 370).mousePressed(s.switchScreen18));
+    buttons.push(s.createButton("19").position(270, 370).mousePressed(s.switchScreen19));
+    buttons.push(s.createButton("20").position(365, 370).mousePressed(s.switchScreen20));
+  }
 
-
+  function star(x, y, radius1, radius2, npoints) {
+    var angle = s.TWO_PI / npoints;
+    var halfAngle = angle / 2.0;
+    s.beginShape();
+    for (var a = 0; a < s.TWO_PI; a += angle) {
+      var sx = x + s.cos(a) * radius2;
+      var sy = y + s.sin(a) * radius2;
+      s.vertex(sx, sy);
+      sx = x + s.cos(a + halfAngle) * radius1;
+      sy = y + s.sin(a + halfAngle) * radius1;
+      s.vertex(sx, sy);
+    }
+    s.endShape(s.CLOSE);
   }
 
   function styleize() {
-    for (i=0; i<buttons.length; i++){
+    for (i = 0; i < buttons.length; i++) {
       buttons[i].style('width', '50px')
         .style('height', '30px')
-
     }
   }
+
+  function makeStars(){
+    for (let i = 0; i<buttons.length; i++){
+      var x = buttons[i].x;
+      var y = buttons[i].y;
+      star(x+5,y+45,7,3.5,5);
+      star(x+25,y+45,7,3.5,5);
+      star(x+45,y+45,7,3.5,5);
+    }
+  }
+
   s.setup = function() {
     s.createCanvas(500, 500);
     s.background('#43f2c3');
     makeButtons();
+    makeStars();
     styleize();
     s.textSize(25)
-    s.text("Levels", 230,50)
+    s.text("Levels", 230, 50)
   }
 
   s.switchScreen1 = function(x) {
