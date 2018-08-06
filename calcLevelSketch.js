@@ -55,79 +55,78 @@ var calcLevelSketch = function(p) {
 
 
 
-  p.makeBrokenKeys = function(){
-    if (p.brokenKeys.indexOf('7')!==-1){
+  p.makeBrokenKeys = function() {
+    if (p.brokenKeys.indexOf('7') !== -1) {
       p.calcButtons[1].style('background-color', "rgb(256,0,0)")
-      .mousePressed(donothing);
+        .mousePressed(donothing);
     }
-    if (p.brokenKeys.indexOf('8')!==-1){
+    if (p.brokenKeys.indexOf('8') !== -1) {
       p.calcButtons[2].style('background-color', "rgb(256,0,0)")
-      .mousePressed(donothing);
+        .mousePressed(donothing);
     }
-    if (p.brokenKeys.indexOf('9')!==-1){
+    if (p.brokenKeys.indexOf('9') !== -1) {
       p.calcButtons[3].style('background-color', "rgb(256,0,0)")
-      .mousePressed(donothing);
+        .mousePressed(donothing);
     }
-    if (p.brokenKeys.indexOf('/')!==-1){
+    if (p.brokenKeys.indexOf('/') !== -1) {
       p.calcButtons[4].style('background-color', "rgb(256,0,0)")
-      .mousePressed(donothing);
+        .mousePressed(donothing);
     }
-    if (p.brokenKeys.indexOf('4')!==-1){
+    if (p.brokenKeys.indexOf('4') !== -1) {
       p.calcButtons[5].style('background-color', "rgb(256,0,0)")
-      .mousePressed(donothing);
+        .mousePressed(donothing);
     }
-    if (p.brokenKeys.indexOf('5')!==-1){
+    if (p.brokenKeys.indexOf('5') !== -1) {
       p.calcButtons[6].style('background-color', "rgb(256,0,0)")
-      .mousePressed(donothing);
+        .mousePressed(donothing);
     }
-    if (p.brokenKeys.indexOf('6')!==-1){
+    if (p.brokenKeys.indexOf('6') !== -1) {
       p.calcButtons[7].style('background-color', "rgb(256,0,0)")
-      .mousePressed(donothing);
+        .mousePressed(donothing);
     }
-    if (p.brokenKeys.indexOf('*')!==-1){
+    if (p.brokenKeys.indexOf('*') !== -1) {
       p.calcButtons[8].style('background-color', "rgb(256,0,0)")
-      .mousePressed(donothing);
+        .mousePressed(donothing);
     }
-    if (p.brokenKeys.indexOf('1')!==-1){
+    if (p.brokenKeys.indexOf('1') !== -1) {
       p.calcButtons[9].style('background-color', "rgb(256,0,0)")
-      .mousePressed(donothing);
+        .mousePressed(donothing);
     }
-    if (p.brokenKeys.indexOf('2')!==-1){
+    if (p.brokenKeys.indexOf('2') !== -1) {
       p.calcButtons[10].style('background-color', "rgb(256,0,0)")
-      .mousePressed(donothing);
+        .mousePressed(donothing);
     }
-    if (p.brokenKeys.indexOf('3')!==-1){
+    if (p.brokenKeys.indexOf('3') !== -1) {
       p.calcButtons[11].style('background-color', "rgb(256,0,0)")
-      .mousePressed(donothing);
+        .mousePressed(donothing);
     }
-    if (p.brokenKeys.indexOf('-')!==-1){
+    if (p.brokenKeys.indexOf('-') !== -1) {
       p.calcButtons[12].style('background-color', "rgb(256,0,0)")
-      .mousePressed(donothing);
+        .mousePressed(donothing);
     }
-    if (p.brokenKeys.indexOf('0')!==-1){
+    if (p.brokenKeys.indexOf('0') !== -1) {
       p.calcButtons[14].style('background-color', "rgb(256,0,0)")
-      .mousePressed(donothing);
+        .mousePressed(donothing);
     }
-    if (p.brokenKeys.indexOf('+')!==-1){
+    if (p.brokenKeys.indexOf('+') !== -1) {
       p.calcButtons[16].style('background-color', "rgb(256,0,0)")
-      .mousePressed(donothing);
+        .mousePressed(donothing);
     }
   }
 
   function equals() {
     var value = eval(p.calcInput.value());
-    if (value == p.target && p.moveHistory.indexOf(p.calcInput.value())===-1){
+    if (value == p.target && p.moveHistory.indexOf(p.calcInput.value()) === -1) {
       p.score += 1;
       p.moveHistory.push(p.calcInput.value());
-      moveHistoryElem.html(moveHistoryElem.html() + "<br>"+ p.calcInput.value());
+      moveHistoryElem.html(moveHistoryElem.html() + "<br>" + p.calcInput.value());
       zeroed();
-    }
-    else{
-      zeroed();
+    } else {
+      p.calcInput.value(value);
     }
   }
 
-  function add(){
+  function add() {
     p.calcInput.value(p.calcInput.value() + this.html());
   }
 
@@ -137,21 +136,22 @@ var calcLevelSketch = function(p) {
 
   function donothing() {}
 
-  p.switchScreen = function(){
-  document.getElementById("levelingScreen").style.display = "block";
-  document.getElementById("calculatorScreen").style.display = "none";
-}
+  p.switchScreen = function() {
+    document.getElementById("levelingScreen").style.display = "block";
+    document.getElementById("calculatorScreen").style.display = "none";
+  }
 
   var counter = 0;
   var interval;
 
-  p.startTimer = function(){
+  p.startTimer = function() {
     interval = setInterval(timeIt, 1000);
   }
-  function timeIt(){
+
+  function timeIt() {
     counter++;
-    timerElem.html("Time "+eval(time-counter));
-    if (counter == 60){
+    timerElem.html("Time " + eval(time - counter));
+    if (counter == 60) {
       clearInterval(interval);
       counter = 0;
       p.displayEndMessage = true;
@@ -160,27 +160,116 @@ var calcLevelSketch = function(p) {
   p.setup = function() {
     p.createCanvas(500, 500);
     p.background('#43f2c3');
-    timerElem = p.createDiv("Time "+time).position(250,80);
+    timerElem = p.createDiv("Time " + time).position(350, 30);
     p.makeCalcButtons();
-    scoreElem = p.createDiv().position(100,50);
-    targElem = p.createDiv().position(100,80);
+    scoreElem = p.createDiv().position(140, 30);
+    targElem = p.createDiv().position(350, 70);
     backButton = p.createButton('Back').mousePressed(p.switchScreen).position(400, 420);
-    moveHistoryElem = p.createDiv('Move History').position(370,90).style("width", '120px').style("height", '320px');
+    moveHistoryElem = p.createDiv('Move History').position(370, 90).style("width", '120px').style("height", '320px');
     p.fill("black")
-    p.rect(90,130,250,310)
+    p.rect(90, 130, 250, 310)
 
   }
 
-  p.clearMoveHistory = function(){
+  p.maxScore = 10;
+  p.onestar = 2;
+  p.twostar = 5;
+  p.threestar = 8
+
+  p.clearMoveHistory = function() {
     p.moveHistory = [];
     moveHistoryElem.html("Move History")
   }
 
+  function star(x, y, radius1, radius2, npoints) {
+    var angle = p.TWO_PI / npoints;
+    var halfAngle = angle / 2.0;
+    p.beginShape();
+    for (var a = 0; a < p.TWO_PI; a += angle) {
+      var sx = x + p.cos(a) * radius2;
+      var sy = y + p.sin(a) * radius2;
+      p.vertex(sx, sy);
+      sx = x + p.cos(a + halfAngle) * radius1;
+      sy = y + p.sin(a + halfAngle) * radius1;
+      p.vertex(sx, sy);
+    }
+    p.endShape(p.CLOSE);
+  }
+
+  function drawScore() {
+    p.fill('black');
+    p.rect(80, 58, 220, 32);
+    p.fill('orange');
+    p.rect(83, 62, (p.score / p.maxScore) * 218, 26)
+    p.stroke(4);
+    p.fill('white')
+    star(80 + (p.onestar / p.maxScore) * 218, 74, 10, 5, 5)
+    star(80 + (p.twostar / p.maxScore) * 218, 74, 10, 5, 5)
+    star(80 + (p.threestar / p.maxScore) * 218, 74, 10, 5, 5)
+  }
+
   p.draw = function() {
-    scoreElem.html('Score: '+ p.score)
+    scoreElem.html('Score: ' + p.score)
     targElem.html('Target:' + p.target)
-    if (p.displayEndMessage){
+    drawScore()
+    if (p.displayEndMessage) {
       timerElem.html("Times Up")
+    }
+  }
+
+  p.keyPressed = function(){
+    if (p.key === '7'){
+      p.calcInput.value(p.calcInput.value() + '7');
+    }
+    if (p.key === '8'){
+      p.calcInput.value(p.calcInput.value() + '8');
+      return false;
+    }
+    if (p.key === '9'){
+      p.calcInput.value(p.calcInput.value() + '9');
+    }
+    if (p.keyCode === 191){
+      p.calcInput.value(p.calcInput.value() + '/');
+    }
+    if (p.key === '4'){
+      p.calcInput.value(p.calcInput.value() + '4');
+    }
+    if (p.key === '5'){
+      p.calcInput.value(p.calcInput.value() + '5');
+    }
+    if (p.key === '6'){
+      p.calcInput.value(p.calcInput.value() + '6');
+    }
+    if (p.keyCode === 56){
+      p.calcInput.value(p.calcInput.value() + '*');
+    }
+    if (p.key === '1'){
+      p.calcInput.value(p.calcInput.value() + '1');
+    }
+    if (p.key === '2'){
+      p.calcInput.value(p.calcInput.value() + '2');
+    }
+    if (p.key === '3'){
+      p.calcInput.value(p.calcInput.value() + '3');
+    }
+
+    if (p.keyCode === 189){
+      console.log(13);
+      p.calcInput.value(p.calcInput.value() + '-');
+    }
+    if (p.key === 'C'){
+      zeroed();
+    }
+    if (p.key === '0'){
+      p.calcInput.value(p.calcInput.value() + '0')
+    }
+    if (p.keyCode === p.ENTER){
+      console.log('5');
+      equals();
+    }
+
+    if (p.keyCode === 187){
+      p.calcInput.value(p.calcInput.value() + '+');
     }
   }
 }

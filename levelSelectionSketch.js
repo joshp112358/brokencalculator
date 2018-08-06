@@ -57,6 +57,8 @@ var levelSelectionSketch = function(s) {
     }
   }
 
+  
+
   s.setup = function() {
     s.createCanvas(500, 500);
     s.background('#43f2c3');
