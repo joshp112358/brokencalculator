@@ -216,8 +216,19 @@ var calcLevelSketch = function(p) {
       timerElem.html("Times Up")
     }
   }
+  var oldKey = 1;
 
   p.keyPressed = function(){
+
+    if (p.keyCode === p.SHIFT){
+      oldKey= 1;
+    }
+    if (oldKey === 1 && p.key === '8'){
+
+      p.calcInput.value(p.calcInput.value() + '*');
+      oldKey = 0;
+      return false;
+    }
     if (p.key === '7'){
       p.calcInput.value(p.calcInput.value() + '7');
     }
@@ -230,6 +241,7 @@ var calcLevelSketch = function(p) {
     }
     if (p.keyCode === 191){
       p.calcInput.value(p.calcInput.value() + '/');
+      oldKey = 0;
     }
     if (p.key === '4'){
       p.calcInput.value(p.calcInput.value() + '4');
@@ -240,9 +252,7 @@ var calcLevelSketch = function(p) {
     if (p.key === '6'){
       p.calcInput.value(p.calcInput.value() + '6');
     }
-    if (p.keyCode === 56){
-      p.calcInput.value(p.calcInput.value() + '*');
-    }
+
     if (p.key === '1'){
       p.calcInput.value(p.calcInput.value() + '1');
     }
@@ -254,8 +264,9 @@ var calcLevelSketch = function(p) {
     }
 
     if (p.keyCode === 189){
-      console.log(13);
+
       p.calcInput.value(p.calcInput.value() + '-');
+      oldKey = 0;
     }
     if (p.key === 'C'){
       zeroed();
@@ -264,12 +275,14 @@ var calcLevelSketch = function(p) {
       p.calcInput.value(p.calcInput.value() + '0')
     }
     if (p.keyCode === p.ENTER){
-      console.log('5');
+
       equals();
     }
 
     if (p.keyCode === 187){
       p.calcInput.value(p.calcInput.value() + '+');
+      oldKey = 0;
     }
   }
+
 }
