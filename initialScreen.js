@@ -5,6 +5,7 @@ var initScreenSketch = function(p){
     p.textSize(25);
     p.text("Broken Calculators", 150, 220);
     p.createButton("Start Game").position(220,250).mousePressed(showHide);
+    p.createButton("Instructions").position(220,270)
   }
 
   function showHide(){

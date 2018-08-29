@@ -1,5 +1,5 @@
 var calcLevelSketch = function(p) {
-
+  p.level = 1;
   p.calcButtons = [];
   p.calcInput;
   p.brokenKeys = ['7', '8']
@@ -13,6 +13,12 @@ var calcLevelSketch = function(p) {
   p.displayEndMessage = false;
   p.moveHistory = [];
   var moveHistoryElem;
+
+  p.maxScore = 10;
+  p.onestar = 2;
+  p.twostar = 5;
+  p.threestar = 8
+
 
 
   p.makeCalcButtons = function() {
@@ -155,6 +161,16 @@ var calcLevelSketch = function(p) {
       clearInterval(interval);
       counter = 0;
       p.displayEndMessage = true;
+      if (p.score >= p.threestar) {
+        localStorage.setItem('level'+p.level, 3);
+      }
+      else if (p.score >= p.twostar) {
+        localStorage.setItem('level'+p.level, 2);
+      }
+      else if (p.score >= p.onestar){
+        localStorage.setItem('level'+p.level, 1);
+      }
+      console.log('done');
     }
   }
   p.setup = function() {
@@ -171,10 +187,6 @@ var calcLevelSketch = function(p) {
 
   }
 
-  p.maxScore = 10;
-  p.onestar = 2;
-  p.twostar = 5;
-  p.threestar = 8
 
   p.clearMoveHistory = function() {
     p.moveHistory = [];

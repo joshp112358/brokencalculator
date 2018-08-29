@@ -40,6 +40,7 @@ var levelSelectionSketch = function(s) {
     s.endShape(s.CLOSE);
   }
 
+
   function styleize() {
     for (i = 0; i < buttons.length; i++) {
       buttons[i].style('width', '50px')
@@ -49,6 +50,7 @@ var levelSelectionSketch = function(s) {
 
   function makeStars(){
     for (let i = 0; i<buttons.length; i++){
+      s.fill('white');
       var x = buttons[i].x;
       var y = buttons[i].y;
       star(x+5,y+45,7,3.5,5);
@@ -57,7 +59,8 @@ var levelSelectionSketch = function(s) {
     }
   }
 
-  
+
+
 
   s.setup = function() {
     s.createCanvas(500, 500);
@@ -67,6 +70,251 @@ var levelSelectionSketch = function(s) {
     styleize();
     s.textSize(25)
     s.text("Levels", 230, 50)
+  }
+
+  s.draw = function(){
+    s.fill('orange');
+    if (localStorage.level1 === "3"){
+      star(80+5,90+45,7,3.5,5);
+      star(80+25,90+45,7,3.5,5);
+      star(80+45,90+45,7,3.5,5);
+    }
+    else if (localStorage.level1 === "2") {
+      star(80+5,90+45,7,3.5,5);
+      star(80+25,90+45,7,3.5,5);
+    }
+    else if (localStorage.level1 === "1") {
+      star(80+5,90+45,7,3.5,5);
+    }
+    if (localStorage.level2 === "3"){
+      star(175+5,90+45,7,3.5,5);
+      star(175+25,90+45,7,3.5,5);
+      star(175+45,90+45,7,3.5,5);
+    }
+    else if (localStorage.level2 === "2") {
+      star(175+5,90+45,7,3.5,5);
+      star(175+25,90+45,7,3.5,5);
+    }
+    else if (localStorage.level2 === "1") {
+      star(175+5,90+45,7,3.5,5);
+    }
+    if (localStorage.level3 === "3"){
+      star(270+5,90+45,7,3.5,5);
+      star(270+25,90+45,7,3.5,5);
+      star(270+45,90+45,7,3.5,5);
+    }
+    else if (localStorage.level3 === "2") {
+      star(270+5,90+45,7,3.5,5);
+      star(270+25,90+45,7,3.5,5);
+    }
+    else if (localStorage.level3 === "1") {
+      star(270+5,90+45,7,3.5,5);
+    }
+    if (localStorage.level4 === "3"){
+      star(365+5,90+45,7,3.5,5);
+      star(365+25,90+45,7,3.5,5);
+      star(365+45,90+45,7,3.5,5);
+    }
+    else if (localStorage.level4 === "2") {
+      star(365+5,90+45,7,3.5,5);
+      star(365+25,90+45,7,3.5,5);
+    }
+    else if (localStorage.level4 === "1") {
+      star(365+5,90+45,7,3.5,5);
+    }
+    if (localStorage.level5 === "3"){
+      star(80+5,160+45,7,3.5,5);
+      star(80+25,160+45,7,3.5,5);
+      star(80+45,160+45,7,3.5,5);
+    }
+    else if (localStorage.level5 === "2") {
+      star(80+5,160+45,7,3.5,5);
+      star(80+25,160+45,7,3.5,5);
+    }
+    else if (localStorage.level5 === "1") {
+      star(80+5,160+45,7,3.5,5);
+    }
+    if (localStorage.level6 === "3"){
+      star(175+5,160+45,7,3.5,5);
+      star(175+25,160+45,7,3.5,5);
+      star(175+45,160+45,7,3.5,5);
+    }
+    else if (localStorage.level6 === "2") {
+      star(175+5,160+45,7,3.5,5);
+      star(175+25,160+45,7,3.5,5);
+    }
+    else if (localStorage.level6 === "1") {
+      star(175+5,160+45,7,3.5,5);
+    }
+    if (localStorage.level7 === "3"){
+      star(270+5,160+45,7,3.5,5);
+      star(270+25,160+45,7,3.5,5);
+      star(270+45,160+45,7,3.5,5);
+    }
+    else if (localStorage.level7 === "2") {
+      star(270+5,160+45,7,3.5,5);
+      star(270+25,160+45,7,3.5,5);
+    }
+    else if (localStorage.level7 === "1") {
+      star(270+5,160+45,7,3.5,5);
+    }
+    if (localStorage.level8 === "3"){
+      star(365+5,160+45,7,3.5,5);
+      star(365+25,160+45,7,3.5,5);
+      star(365+45,160+45,7,3.5,5);
+    }
+    else if (localStorage.level8 === "2") {
+      star(365+5,160+45,7,3.5,5);
+      star(365+25,160+45,7,3.5,5);
+    }
+    else if (localStorage.level8 === "1") {
+      star(365+5,160+45,7,3.5,5);
+    }
+    if (localStorage.level9 === "3"){
+      star(80+5,230+45,7,3.5,5);
+      star(80+25,230+45,7,3.5,5);
+      star(80+45,230+45,7,3.5,5);
+    }
+    else if (localStorage.level9 === "2") {
+      star(80+5,230+45,7,3.5,5);
+      star(80+25,230+45,7,3.5,5);
+    }
+    else if (localStorage.level9 === "1") {
+      star(80+5,230+45,7,3.5,5);
+    }
+    if (localStorage.level10 === "3"){
+      star(175+5,230+45,7,3.5,5);
+      star(175+25,230+45,7,3.5,5);
+      star(175+45,230+45,7,3.5,5);
+    }
+    else if (localStorage.level10 === "2") {
+      star(175+5,230+45,7,3.5,5);
+      star(175+25,230+45,7,3.5,5);
+    }
+    else if (localStorage.level10 === "1") {
+      star(175+5,230+45,7,3.5,5);
+    }
+    if (localStorage.level11 === "3"){
+      star(270+5,230+45,7,3.5,5);
+      star(270+25,230+45,7,3.5,5);
+      star(270+45,230+45,7,3.5,5);
+    }
+    else if (localStorage.level11=== "2") {
+      star(270+5,230+45,7,3.5,5);
+      star(270+25,230+45,7,3.5,5);
+    }
+    else if (localStorage.level11 === "1") {
+      star(270+5,230+45,7,3.5,5);
+    }
+    if (localStorage.level12 === "3"){
+      star(365+5,230+45,7,3.5,5);
+      star(365+25,230+45,7,3.5,5);
+      star(365+45,230+45,7,3.5,5);
+    }
+    else if (localStorage.level12 === "2") {
+      star(365+5,230+45,7,3.5,5);
+      star(365+25,230+45,7,3.5,5);
+    }
+    else if (localStorage.level12 === "1") {
+      star(365+5,230+45,7,3.5,5);
+    }
+    if (localStorage.level13 === "3"){
+      star(80+5,300+45,7,3.5,5);
+      star(80+25,300+45,7,3.5,5);
+      star(80+45,300+45,7,3.5,5);
+    }
+    else if (localStorage.level13 === "2") {
+      star(80+5,300+45,7,3.5,5);
+      star(80+25, 300+45,7,3.5,5);
+    }
+    else if (localStorage.level13 === "1") {
+      star(80+5,300+45,7,3.5,5);
+    }
+    if (localStorage.level14 === "3"){
+      star(175+5,300+45,7,3.5,5);
+      star(175+25,300+45,7,3.5,5);
+      star(175+45,300+45,7,3.5,5);
+    }
+    else if (localStorage.level14 === "2") {
+      star(175+5,300+45,7,3.5,5);
+      star(175+25,300+45,7,3.5,5);
+    }
+    else if (localStorage.level14 === "1") {
+      star(175+5,300+45,7,3.5,5);
+    }
+    if (localStorage.level15 === "3"){
+      star(270+5,300+45,7,3.5,5);
+      star(270+25,300+45,7,3.5,5);
+      star(270+45,300+45,7,3.5,5);
+    }
+    else if (localStorage.level15 === "2") {
+      star(270+5,300+45,7,3.5,5);
+      star(270+25,300+45,7,3.5,5);
+    }
+    else if (localStorage.level15 === "1") {
+      star(270+5,300+45,7,3.5,5);
+    }
+    if (localStorage.level16 === "3"){
+      star(365+5,300+45,7,3.5,5);
+      star(365+25,300+45,7,3.5,5);
+      star(365+45,300+45,7,3.5,5);
+    }
+    else if (localStorage.level16 === "2") {
+      star(365+5,300+45,7,3.5,5);
+      star(365+25,300+45,7,3.5,5);
+    }
+    else if (localStorage.level16 === "1") {
+      star(365+5,300+45,7,3.5,5);
+    }
+
+    if (localStorage.level17 === "3"){
+      star(80+5,370+45,7,3.5,5);
+      star(80+25,370+45,7,3.5,5);
+      star(80+45,370+45,7,3.5,5);
+    }
+    else if (localStorage.level17 === "2") {
+      star(80+5,370+45,7,3.5,5);
+      star(80+25,370+45,7,3.5,5);
+    }
+    else if (localStorage.level17 === "1") {
+      star(80+5,370+45,7,3.5,5);
+    }
+    if (localStorage.level18 === "3"){
+      star(175+5,370+45,7,3.5,5);
+      star(175+25,370+45,7,3.5,5);
+      star(175+45,370+45,7,3.5,5);
+    }
+    else if (localStorage.level18 === "2") {
+      star(175+5,370+45,7,3.5,5);
+      star(175+25,370+45,7,3.5,5);
+    }
+    else if (localStorage.level18 === "1") {
+      star(175+5,370+45,7,3.5,5);
+    }
+    if (localStorage.level19 === "3"){
+      star(270+5,370+45,7,3.5,5);
+      star(270+25,370+45,7,3.5,5);
+      star(270+45,370+45,7,3.5,5);
+    }
+    else if (localStorage.level19 === "2") {
+      star(270+5,370+45,7,3.5,5);
+      star(270+25,370+45,7,3.5,5);
+    }
+    else if (localStorage.level19 === "1") {
+      star(270+5,370+45,7,3.5,5);
+    }
+    if (localStorage.level20=== "3"){
+      star(365+5,370+45,7,3.5,5);
+      star(365+25,370+45,7,3.5,5);
+      star(365+45,370+45,7,3.5,5);
+    }
+    else if (localStorage.level20 === "2") {
+      star(365+5,370+45,7,3.5,5);
+      star(365+25,370+45,7,3.5,5);
+    }
+    else if (localStorage.level20 === "1") {
+      star(365+5,370+45,7,3.5,5);
+    }
   }
 
   s.switchScreen1 = function(x) {
