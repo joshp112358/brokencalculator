@@ -14,7 +14,7 @@ var calcLevelSketch = function(p) {
   p.moveHistory = [];
   var moveHistoryElem;
 
-  p.maxScore = 10;
+  p.maxScore = 6;
   p.onestar = 1;
   p.twostar = 2;
   p.threestar = 3;
