@@ -1,4 +1,7 @@
 var levelSelectionSketch = function(s) {
+  s.touchStarted = function(){
+    return false;
+  }
 
   var buttons = [];
   var makeButtons = function() {

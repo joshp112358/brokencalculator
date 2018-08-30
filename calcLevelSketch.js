@@ -14,7 +14,7 @@ var calcLevelSketch = function(p) {
   p.moveHistory = [];
   var moveHistoryElem;
 
-  p.maxScore = 6;
+  p.maxScore = 4;
   p.onestar = 1;
   p.twostar = 2;
   p.threestar = 3;
@@ -53,6 +53,7 @@ var calcLevelSketch = function(p) {
         .style('height', '50px')
         .style('background-color', "white")
         .style('font-size', '1em')
+        .style('border-radius', '4px')
         .mousePressed(add);
     }
     p.calcButtons[13].mousePressed(zeroed)
