@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+canvas {
+  margin: auto;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+#homeScreen {
+  display:block;
+}
+#levelsScreen {
+  display:none;
+}
+#levelsScreen1 {
+  display:none;
+}
+#levelsScreen2 {
+  display:none;
+}
+#calculatorScreen{
+  display:none;
+}
+#tutorialScreen{
+  display:none;
+}
