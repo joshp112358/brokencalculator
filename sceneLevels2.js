@@ -18,17 +18,6 @@ var sceneLevels2 = function(p) {
     p.background('#ccffff');
     createButtons();
     createLevels();
-    nextButton = p.createButton('Next').position(200,12).touchStarted(next)
-    nextButton.style('height', '30px')
-      .style('width', '90px')
-      .style('background-color', "#3399ff")
-      .style("font-size", "1em")
-      .style('font', myFont)
-      .style('text-align', 'center')
-      .style("align-content", "right")
-      .style('border-radius', '4px')
-      .style('border', 'none')
-
 
     //menu bar
     p.noStroke()
@@ -197,8 +186,7 @@ var sceneLevels2 = function(p) {
 
 
   function next(){
-    document.getElementById('levelsScreen1').style.display = 'block'
-    document.getElementById('levelsScreen').style.display = 'none'
+
   }
 
   function back() {
